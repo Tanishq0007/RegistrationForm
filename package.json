@@ -17,5 +17,9 @@
     "start:server": "(cd ./server && npm run start:watch)"
   },
   "author": "Rishabh Jain",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@nestjs/mongoose": "^7.0.1",
+    "mongoose": "^5.9.14"
+  }
 }

@@ -1,0 +1,68 @@
+<section style="margin:30% 5%"fxLayout="column"
+fxLayout.sm="column"
+fxLayout.xs="column"
+fxLayoutAlign.gt-md="center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0">
+<div fxFlex="40" fxFlex.sm="10" fxFlex.xs="10">
+    <h1 style="text-align:center">Achievements</h1>
+  </div>
+  <div fxFlex="60" fxFlex.sm="80" fxFlex.xs="80">
+    <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Supra
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-action-row>
+            <button mat-button color="primary" (click)="nextStep()">Next</button>
+          </mat-action-row>
+          <p>Best Innovation Award 2016 </p>
+          <p>Dronacharya Award 2015</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+          <mat-expansion-panel-header>
+              <mat-panel-title>
+                E-Bike
+              </mat-panel-title>
+          </mat-expansion-panel-header>    
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">Previous</button>
+            <button mat-button color="primary" (click)="nextStep()">Next</button>
+          </mat-action-row>
+          <p>Best Engineering Award 2019</p>
+          <p>Best Innovation Award 2019</p>
+        </mat-expansion-panel>
+      
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              EffiCycle
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+      
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">Previous</button>
+            <button mat-button color="primary" (click)="nextStep()">Next</button>
+          </mat-action-row>
+          <p>Best CAE/CAD 2015</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Go-Kart Event
+              </mat-panel-title>
+            </mat-expansion-panel-header> 
+            <mat-action-row>
+              <button mat-button color="warn" (click)="prevStep()">Previous</button>
+              <button mat-button color="primary" (click)="nextStep()">End</button>
+            </mat-action-row>
+            <p>First Runner Lpu 2014</p>
+          </mat-expansion-panel>
+        
+      
+      </mat-accordion>
+      </div>
+
+</section>

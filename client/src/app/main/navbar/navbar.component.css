@@ -1,0 +1,14 @@
+mat-sidenav {
+  width: 300px;
+  background-color: #EA4464;
+}
+
+mat-sidenav-content {
+  color: #ffffff;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: right;
+}
+/*# sourceMappingURL=navbar.component.css.map */

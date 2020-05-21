@@ -1,0 +1,8 @@
+mat-toolbar {
+  font-weight: 100;
+  font-size: 15px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=footer.component.css.map */

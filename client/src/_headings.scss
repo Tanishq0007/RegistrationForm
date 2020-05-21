@@ -1,0 +1,155 @@
+@import "_mixins";
+
+$colors:(primary:#d14949,
+    accent:#c2c2c2,
+    mett :#c1c1c1,
+    test:#07192F);
+$fontsize :(size7:13rem,
+    size6:10rem,
+    size5:8rem,
+    size4:6rem,
+    size3:5rem,
+    size2:4rem,
+    size1:3rem,
+    size0: 2rem,
+    size:1rem);
+
+@function size($fontSize) {
+    @return map-get($map: $fontsize, $key:$fontSize)
+};
+@function color($colorName) {
+    @return map-get($map: $colors, $key:$colorName)
+}
+
+;
+
+h1 {
+    color: color(primary);
+    margin   : 1rem;
+    @include for-phone-only {
+        font-size: size(size1);
+        margin   : 0;
+    }
+
+    @include for-tablet-portrait-up {
+        font-size: size(size2);
+    }
+
+    @include for-tablet-landscape-up {
+        font-size: size(size3);
+    }
+
+    @include for-desktop-up {
+        font-size: size(size4);
+    }
+
+    @include for-big-desktop-up {
+        font-size: size(size5);
+    }
+}
+
+h2 {
+    color: color(primary);
+    margin   : 1rem;
+    @include for-phone-only {
+        font-size: size(size0);
+        margin   : 0;
+    }
+
+    @include for-tablet-portrait-up {
+        font-size: size(size1);
+    }
+
+    @include for-tablet-landscape-up {
+        font-size: size(size2);
+    }
+
+    @include for-desktop-up {
+        font-size: size(size3);
+    }
+
+    @include for-big-desktop-up {
+        font-size: size(size4);
+    }
+}
+
+h3 {
+    color: color(primary);
+    margin   : 1rem;
+    @include for-phone-only {
+        font-size: size(size);
+        margin   : 0;
+    }
+
+    @include for-tablet-portrait-up {
+        font-size: size(size0);
+    }
+
+    @include for-tablet-landscape-up {
+        font-size: size(size1);
+    }
+
+    @include for-desktop-up {
+        font-size: size(size2);
+    }
+
+    @include for-big-desktop-up {
+        font-size: size(size3);
+    }
+}
+
+h4 {
+    color: color(primary);
+    margin   : 1rem;
+    @include for-phone-only {
+        font-size: 0.5rem;
+        margin   : 0;
+    }
+
+    @include for-tablet-portrait-up {
+        font-size: size(size);
+    }
+
+    @include for-tablet-landscape-up {
+        font-size: size(size0);
+    }
+
+    @include for-desktop-up {
+        font-size: size(size1);
+    }
+
+    @include for-big-desktop-up {
+        font-size: size(size2);
+    }
+}
+
+h5 {
+    color: color(primary);
+    margin   : 1rem;
+    @function size($fontSize) {
+        @return map-get($map: $fontsize, $key:$fontSize)
+    }
+
+    ;
+
+    @include for-phone-only {
+        font-size: 0.5rem;
+        margin   : 0;
+    }
+
+    @include for-tablet-portrait-up {
+        font-size: size(size);
+    }
+
+    @include for-tablet-landscape-up {
+        font-size: size(size0);
+    }
+
+    @include for-desktop-up {
+        font-size: size(size1);
+    }
+
+    @include for-big-desktop-up {
+        font-size: size(size2);
+    }
+}

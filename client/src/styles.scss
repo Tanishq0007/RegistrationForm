@@ -1,0 +1,85 @@
+@import "_mixins";
+@import "_headings";
+@import "_para";
+
+$colors:(primary:#ffffff,
+    accent:#c2c2c2,
+    mett :#c1c1c1,
+    test:#303030);
+$fontsize :(size7:13rem,
+    size6:10rem,
+    size5:8rem,
+    size4:6rem,
+    size3:5rem,
+    size2:4rem,
+    size1:3rem,
+    size0: 2rem,
+    size:1rem);
+body{
+    background-color: color(test);
+};
+@function color($colorName) {
+    @return map-get($map: $colors, $key:$colorName)
+}
+
+;
+
+@function size($fontSize) {
+    @return map-get($map: $fontsize, $key:$fontSize)
+}
+
+;
+
+.flex-spacer {
+    flex: 1 1 auto
+}
+
+.container {
+    height      : 100vh;
+    margin-left : size(size2);
+    justify-content: center;
+    align-items : center;
+    margin-right: size(size2);
+
+    @include for-phone-only {
+
+        margin-left : size(size);
+        align-items : center;
+        margin-right: size(size);
+    }
+
+    @include for-tablet-portrait-up {
+        margin-left : size(size);
+        align-items : center;
+        margin-right: size(size);
+    }
+
+    @include for-tablet-landscape-up {
+        height      : 100vh;
+        margin-left : size(size2);
+        align-items : center;
+        margin-right: size(size2);
+    }
+
+    @include for-desktop-up {
+        height      : 100vh;
+        margin-left : size(size2);
+        align-items : center;
+        margin-right: size(size2);
+    }
+
+    @include for-big-desktop-up {
+        height      : 100vh;
+        margin-left : size(size2);
+        align-items : center;
+        margin-right: size(size2);  
+    }
+}
+.ab {
+    @include for-phone-only {
+      background-image: url('../src/assets/2.jpg');
+      display: none;
+    }
+
+  
+}
