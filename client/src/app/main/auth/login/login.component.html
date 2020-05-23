@@ -1,0 +1,39 @@
+<div
+  class="container"
+  fxLayoutGap="10px"
+  fxLayoutAlign.lt-md="space-around center"
+  fxLayoutAlign.gt-md="space-around center"
+
+>
+<div class="example-container">
+    <div fxFlex.layout="row" fxLayoutGap="20px">
+    <mat-form-field>
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="abc@example.com"
+        [formControl]="email"
+        required
+      />
+      <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    </div><br>
+    <div fxFlex.layout="row" fxLayoutGap="20px">
+    <button mat-raised-button color="accent" (click)="submit()">Login</button>
+    <button mat-raised-button routerLink="/signup" color="accent">SignUp</button>
+    </div>
+  </div>
+</div>

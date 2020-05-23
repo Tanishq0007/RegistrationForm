@@ -1,0 +1,36 @@
+@import "../../../../mixins";
+
+mat-horizontal-stepper {
+    width : 70%;
+    margin: auto;
+color: aliceblue;
+    @include for-phone-only {
+        width: 100%;
+    }
+
+    @include for-tablet-portrait-up {
+        width: 100%;
+    }
+
+    @include for-tablet-landscape-up {
+        width : 70%;
+        margin: auto;
+    }
+
+
+}
+
+mat-form-field {
+    margin-top: 16px;
+    width: 70%;
+}
+.form-image {
+    width: 100%;
+    margin: 0;
+    @include for-phone-only {
+        display: none;
+    }
+
+
+
+}

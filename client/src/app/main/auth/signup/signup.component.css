@@ -1,0 +1,41 @@
+mat-horizontal-stepper {
+  width: 70%;
+  margin: auto;
+  color: aliceblue;
+}
+
+@media (max-width: 599px) {
+  mat-horizontal-stepper {
+    width: 100%;
+  }
+}
+
+@media (min-width: 600px) {
+  mat-horizontal-stepper {
+    width: 100%;
+  }
+}
+
+@media (min-width: 900px) {
+  mat-horizontal-stepper {
+    width: 70%;
+    margin: auto;
+  }
+}
+
+mat-form-field {
+  margin-top: 16px;
+  width: 70%;
+}
+
+.form-image {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 599px) {
+  .form-image {
+    display: none;
+  }
+}
+/*# sourceMappingURL=signup.component.css.map */

@@ -30,6 +30,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { WorkshopsComponent } from './Home/workshops/workshops.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material';
+import { UserService } from './auth/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 
 
@@ -47,14 +56,17 @@ import { WorkshopsComponent } from './Home/workshops/workshops.component';
     ContactComponent,
     MainComponent,
     WorkshopComponent,
-    WorkshopsComponent
+    WorkshopsComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule, FlexLayoutModule,
-    MainRoutingModule, MatMenuModule,MatDatepickerModule,MatNativeDateModule, MatFormFieldModule,MatButtonModule, MatStepperModule, MatButtonToggleModule, MatCardModule, MatExpansionModule, MatToolbarModule, MatIconModule, MatTabsModule, MatSidenavModule, MatTooltipModule
-  ]
-
+    MainRoutingModule,MatSnackBarModule,MatProgressBarModule, MatMenuModule,FormsModule,MatInputModule,ReactiveFormsModule,MatDatepickerModule,MatNativeDateModule, MatFormFieldModule,MatButtonModule, MatStepperModule, MatButtonToggleModule, MatCardModule, MatExpansionModule, MatToolbarModule, MatIconModule, MatTabsModule, MatSidenavModule, MatTooltipModule
+  ],
+  providers:[UserService]
 })
 export class MainModule { } 

@@ -291,6 +291,7 @@ body {
 
 @media (max-width: 599px) {
   .ab {
+    background-image: url("../src/assets/2.jpg");
     display: none;
   }
 }
