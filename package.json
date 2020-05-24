@@ -19,7 +19,10 @@
   "author": "Rishabh Jain",
   "license": "MIT",
   "dependencies": {
+    "@crowdlinker/nestjs-mailer": "0.0.3",
+    "@nestjs-modules/mailer": "^1.5.0",
     "@nestjs/mongoose": "^7.0.1",
-    "mongoose": "^5.9.14"
+    "mongoose": "^5.9.14",
+    "nodemailer": "^6.4.6"
   }
 }

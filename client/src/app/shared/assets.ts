@@ -3,7 +3,7 @@ export let DOMAIN: any;
 export let ASSETS: any;
 
 if (!environment['production']) {
-  DOMAIN = 'http://localhost:3000';
+  DOMAIN = 'http://localhost:8000';
 } else {
   DOMAIN = '.';
 }
