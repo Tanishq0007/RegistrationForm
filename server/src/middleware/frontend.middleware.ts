@@ -1,8 +1,7 @@
 import { Injectable, NestMiddleware } from '@nestjs/common';
 
-    
 import * as path from 'path';
-import { ROUTE_PREFIX } from '../config/routes';
+import { ROUTE_PREFIX } from '../config/constants';
 
 const allowedExt = [
   '.js',
@@ -16,7 +15,7 @@ const allowedExt = [
   '.svg',
 ];
 
-const resolvePath = (file: string) => path.resolve(`../client/dist/client/${file}`);
+const resolvePath = (file: string) => path.resolve(`../client/dist/${file}`);
 
 @Injectable()
 export class FrontendMiddleware implements NestMiddleware {

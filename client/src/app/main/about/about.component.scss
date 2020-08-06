@@ -1,0 +1,56 @@
+.box{
+  background:url("/assets/2.svg");
+  padding: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  .text {
+    font-size: 30px;
+  } 
+  @media(max-width: 576px){
+    .text {
+      font-size: 28px;
+      display: none;
+    }
+    .button2{
+      display: block;
+    }
+    img{
+      width: 100%;
+    }
+  }
+  @media(min-width:786px) {
+    .button2{
+      display: none;
+    }
+    img{
+      display: none;
+    }
+  }
+}
+
+@media(max-width:576px){
+  .box {
+    background:url("/assets/2.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 67%;
+    padding-bottom: 60%;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+}
+label {
+  color: #00008b9e;
+  font-weight: 600;
+}
+h2 {
+  color: #777777;
+  font-weight: 700;
+  margin: 4%;
+}
+
+h4{
+  color: #777777; 
+  font-weight: 700;
+}

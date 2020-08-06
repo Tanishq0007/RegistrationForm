@@ -1,72 +1,45 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeMainComponent } from './Home/home-main/home-main.component';
-import { PrizesComponent } from './Home/prizes/prizes.component';
-import { HomeAboutComponent } from './Home/home-about/home-about.component';
-import { EventsComponent } from './Home/events/events.component';
-import { HomeComponent } from './Home/home.component';
-import { MainRoutingModule } from './main-routing.module'
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component'
-import { FooterComponent } from './footer/footer.component'
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatExpansionModule } from '@angular/material/expansion';
-import { MainComponent } from './main.component'
-import { WorkshopComponent } from './workshop/workshop.component';
-import { TeamComponent } from './team/team.component';
-import { ContactComponent } from './contact/contact.component';
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { MatCardModule } from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { WorkshopsComponent } from './Home/workshops/workshops.component';
-import { LoginComponent } from './auth/login/login.component';
-import { SignupComponent } from './auth/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material';
-import { UserService } from './auth/user.service';
-import { HttpClientModule } from '@angular/common/http';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { NgxHmCarouselModule } from 'ngx-hm-carousel';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeHeaderComponent } from './home/home-header/home-header.component';
+import { HomeTutorialComponent } from './home/home-tutorial/home-tutorial.component';
+import { HomeAboutComponent } from './home/home-about/home-about.component';
+import { FaqsComponent } from './faqs/faqs.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { TermsComponent } from './terms/terms.component';
+import { AboutComponent } from './about/about.component';
+import { ReachComponent } from './reach/reach.component';
+import { ContactComponent } from './contact/contact.component';
+import { MainComponent } from './main.component';
+import { MainRoutingModule } from './main-routing.module';
+import { UsersModule } from './users/users.module'
+// Material imports
+import { MatCardModule } from '@angular/material/card';
+import { BookingComponent } from './booking/booking.component';
+import { HomeFeaturesComponent } from './home/home-features/home-features.component';
+
+
+import { MainService } from './main.service';
+import { HomeTeamComponent } from './home/home-team/home-team.component';
+import { SupraComponent } from './supra/supra.component';
+import { EfficycleComponent } from './efficycle/efficycle.component';
+import { EfficarComponent } from './efficar/efficar.component';
+import { InnovacionComponent } from './innovacion/innovacion.component';
+import { AacarComponent } from './aacar/aacar.component';
+import { UsersComponent } from './users/users.component';
 
 
 
 
 @NgModule({
-  declarations: [
-    NavbarComponent,
-    FooterComponent,
-    HomeMainComponent,
-    HomeAboutComponent,
-    PrizesComponent,
-    EventsComponent,
-    HomeComponent,
-    TeamComponent,
-    EventsComponent,
-    ContactComponent,
-    MainComponent,
-    WorkshopComponent,
-    WorkshopsComponent,
-    LoginComponent,
-    SignupComponent
-  ],
+  declarations: [HomeComponent, NavbarComponent, FooterComponent, HomeHeaderComponent, HomeTutorialComponent, HomeAboutComponent, FaqsComponent, PrivacyComponent, TermsComponent, AboutComponent, ReachComponent, ContactComponent, MainComponent, BookingComponent, HomeFeaturesComponent,  HomeTeamComponent, SupraComponent, EfficycleComponent, EfficarComponent, InnovacionComponent, AacarComponent, UsersComponent],
   imports: [
-    HttpClientModule,
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule, FlexLayoutModule,
-    MainRoutingModule,MatSnackBarModule,MatProgressBarModule, MatMenuModule,FormsModule,MatInputModule,ReactiveFormsModule,MatDatepickerModule,MatNativeDateModule, MatFormFieldModule,MatButtonModule, MatStepperModule, MatButtonToggleModule, MatCardModule, MatExpansionModule, MatToolbarModule, MatIconModule, MatTabsModule, MatSidenavModule, MatTooltipModule
+    CommonModule, MainRoutingModule, MatCardModule, FormsModule, ReactiveFormsModule, NgxHmCarouselModule,UsersModule
   ],
-  providers:[UserService]
+  providers: [MainService]
 })
-export class MainModule { } 
+export class MainModule { }

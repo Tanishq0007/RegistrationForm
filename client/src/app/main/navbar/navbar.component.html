@@ -1,25 +1,48 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" position="start">
-    <p><button mat-button routerLink="/alumni">Alumni</button>
-    <button mat-button routerLink="/team">Team</button>
-    <button mat-button routerLink="/contact">Contact</button></p>
-  </mat-sidenav>
-  <mat-sidenav-content >
-    <p>
-      <button  mat-button  routerLink="/" matTooltip="Home"
-      aria-label="Button that displays a tooltip when focused or hovered over" style="cursor: pointer;">SAE - AKGEC</button>
-      <button mat-raised-button
-      matTooltip="Menu"
-      aria-label="Button that displays a tooltip when focused or hovered over" (click)="sidenav.open()"><mat-icon>drag_handle</mat-icon></button>
-      <button  matTooltip="My Account"
-      aria-label="Button that displays a tooltip when focused or hovered over"  mat-button [matMenuTriggerFor]="aboveMenu">
-        <mat-icon>person_pin</mat-icon>
-      </button>
-      <mat-menu #aboveMenu="matMenu" yPosition="above">
-        <!-- <button mat-menu-item routerLink="/login">Login</button> -->
-        <button mat-menu-item routerLink="/register">Register</button>
-      </mat-menu> 
-    
-    </p>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<nav class="navbar navbar-expand-md navbar-light fixed-top" id="navbar">
+    <div class="container">
+        <a class="navbar-brand" routerLink="">SAE-AKGEC</a>
+        <nav class="navbar navbar-light navbar-expand-md">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-align-justify" style="color:white"></i>
+            </button>
+        </nav>
+
+
+        <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav animate slideIn ">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink fragment="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a class="nav-link" routerLink fragment="feature">Events</a>
+                        <div class="dropdown-content animate slideIn">
+                            <a routerLink="/supra">SUPRA</a>
+                            <a routerLink="/efficycle">EFFICYCLE</a>
+                            <a routerLink="/efficar">E-BIKE</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink ="/team">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blogs">Alumni</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact">Contact</a>
+                </li>
+                
+               
+                <!-- <li class="nav-item">
+
+                    <a class="nav-link" routerLink="/registration" style="text-decoration: underline;color: #41C0F0;">Register</a>
+                    </li> -->
+
+     
+           
+            </ul>
+        </div>
+    </div>
+</nav>

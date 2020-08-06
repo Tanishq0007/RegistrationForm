@@ -9,11 +9,7 @@ export class RegisterDto {
   @Length(8, 20)
   @ApiProperty({ description:"Password must be minimum of 8 digit long", required: true})
   password: String;
-  
-  @IsString()
-  @Length(3, 30, { message: "Title is too long or short" })
-  @ApiProperty({ description:"User Name of user", required: true , uniqueItems:true})
-  readonly user_name: String;
+
   @IsString()
   @Length(3, 30, { message: "Title is too long or short" })
   @ApiProperty({ description:"First Name of user", required: true})

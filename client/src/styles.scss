@@ -1,85 +1,33 @@
-@import "_mixins";
-@import "_headings";
-@import "_para";
 
-$colors:(primary:#ffffff,
-    accent:#c2c2c2,
-    mett :#c1c1c1,
-    test:#303030);
-$fontsize :(size7:13rem,
-    size6:10rem,
-    size5:8rem,
-    size4:6rem,
-    size3:5rem,
-    size2:4rem,
-    size1:3rem,
-    size0: 2rem,
-    size:1rem);
-body{
-    background-color: color(test);
-};
-@function color($colorName) {
-    @return map-get($map: $colors, $key:$colorName)
-}
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
 
-;
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
 
-@function size($fontSize) {
-    @return map-get($map: $fontsize, $key:$fontSize)
-}
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$client-primary: mat-palette($mat-indigo);
+$client-accent: mat-palette($mat-pink, A200, A100, A400);
 
-;
+// The warn palette is optional (defaults to red).
+$client-warn: mat-palette($mat-red);
 
-.flex-spacer {
-    flex: 1 1 auto
-}
+// Create the theme object (a Sass map containing all of the palettes).
+$client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
 
-.container {
-    height      : 100vh;
-    margin-left : size(size2);
-    justify-content: center;
-    align-items : center;
-    margin-right: size(size2);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($client-theme);
 
-    @include for-phone-only {
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800,900');
 
-        margin-left : size(size);
-        align-items : center;
-        margin-right: size(size);
-    }
 
-    @include for-tablet-portrait-up {
-        margin-left : size(size);
-        align-items : center;
-        margin-right: size(size);
-    }
-
-    @include for-tablet-landscape-up {
-        height      : 100vh;
-        margin-left : size(size2);
-        align-items : center;
-        margin-right: size(size2);
-    }
-
-    @include for-desktop-up {
-        height      : 100vh;
-        margin-left : size(size2);
-        align-items : center;
-        margin-right: size(size2);
-    }
-
-    @include for-big-desktop-up {
-        height      : 100vh;
-        margin-left : size(size2);
-        align-items : center;
-        margin-right: size(size2);  
-    }
-}
-.ab {
-    @include for-phone-only {
-      background-image: url('../src/assets/2.jpg');
-      display: none;
-    }
-
-  
-}
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Raleway', sans-serif; }

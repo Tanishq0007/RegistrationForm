@@ -1,0 +1,142 @@
+@import "variables";
+@import "mixins";
+@import "button";
+@import "common";
+
+.breadcrumb_bg {
+	@include background("/assets/4.svg");
+	@media #{$small_mobile} {
+		background: ("/assets/4.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	@media #{$large_mobile} {
+		background: ("/assets/4.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	@media #{$tab_device} {
+		background: ("/assets/4.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	@media #{$medium_device} {
+		background: ("/assets/4.svg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+}
+
+.breadcrumb {
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	background-color: white;
+
+	.breadcrumb_iner {
+		height: 300px;
+		width: 100%;
+		display: table;
+		@media  #{$small_mobile} {
+			height: 200px;
+		}
+		.breadcrumb_iner_item {
+			display: table-cell;
+			vertical-align: middle;
+
+			h2 {
+				color: $color-white;
+				font-size: 100px;
+				font-weight: 500;
+				margin-bottom: 10px;
+				text-transform: capitalize;
+				@media #{$small_mobile} {
+					font-size: 35px;
+				}
+
+				@media #{$large_mobile} {
+					font-size: 35px;
+				}
+
+				@media #{$tab_device} {
+					font-size: 40px;
+				}
+
+				@media #{$medium_device} {
+					font-size: 50px;
+				}
+			}
+
+			p {
+				font-size: 15px;
+				color: $color-white;
+			}
+
+			span {
+				margin: 0px 5px;
+				font-size: 12px;
+			}
+
+		}
+	}
+
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+.alumini_pics_container {
+    float: left;
+    width: 100px;
+    height: 100px;
+    transition: all .5s ease;
+}
+.zoom {
+	transition: transform .2s;
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+	-ms-transform: scale(1.5); /* IE 9 */
+	-webkit-transform: scale(1.5); /* Safari 3-8 */
+	transform: scale(1.3); }
+@keyframes fadeInUp {
+		from { 
+		  opacity: 0;
+		  -webkit-transform: translate3d(0, 100%, 0);
+		  transform: translate3d(0, 100%, 0);
+		}
+	  
+		to {
+		  opacity: 1;
+		  -webkit-transform: none;
+		  transform: none;
+		}
+	  }
+.fadeIn {
+	opacity: 0;
+	animation: fadeInUp 1.7s ease-in-out 0s forwards;
+	  &.first {
+		animation-delay: 1s;
+	  }
+	  &.second {
+		animation-delay: 3s;
+	  }
+	  &.third {
+		animation-delay: 5s;
+	  }
+	  &.fourth {
+		animation-delay: 7s;
+	  }
+	  &.fifth {
+		animation-delay: 9s;
+	  }
+	  &.sixth {
+		animation-delay: 11s;
+	  }
+	 
+	
+}

@@ -1,34 +1,44 @@
 import { Injectable, BadRequestException, UnauthorizedException } from '@nestjs/common';
-import { UsersService } from '../user/users.service'
+import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
-import { JwtPayload } from './interface/jwt-payload.interface';
 import { LoginDto } from './dto/login.dto';
 import * as bcrypt from 'bcrypt';
-import { PassportModule } from '@nestjs/passport';
+import { JwtPayload } from './interface/jwt-payload.interface';
+
 @Injectable()
 export class AuthService {
-    constructor(private userService: UsersService, private jwtService: JwtService) { }
     private saltRounds = 10;
 
-    async authenticate(authDetail:LoginDto){
-        const user = await this.userService.findUserByEmail(authDetail.email)
-        if (!user){
+    constructor(
+        private readonly userService: UserService,
+        private jwtService: JwtService,
+    ) { }
+
+    async authenticate(auth: LoginDto) {
+        const user = await this.userService.findByEmail(auth.email);
+        if (!user) {
             throw new BadRequestException();
         }
-        return this.createJwtPayload(user)
-        
+        if (!await this.compareHash(auth.password, user.password)) {
+            throw new BadRequestException('Invalid credentials');
+        }
+
+        return this.createJwtPayload(user);
     }
-    async getoken(){
-    
+
+    async getHash(password: String): Promise<String> {
+        return await bcrypt.hash(password, this.saltRounds);
     }
-    async getHashPassword(password:String){
-        return await bcrypt.hash(password, this.saltRounds)
-    }
+
     async compareHash(password: String, hash: String): Promise<boolean> {
         return await bcrypt.compare(password, hash);
     }
-    async validateUserByJwt(payload:JwtPayload){
-        let user = await this.userService.findUserById(payload.id)
+
+    async validateUserByJwt(payload: JwtPayload) { 
+
+        // This will be used when the user has already logged in and has a JWT
+        let user = await this.userService.findById(payload.id);
+
         if(user){
             return user;
         } else {
@@ -36,21 +46,24 @@ export class AuthService {
         }
 
     }
-    async createJwtPayload(user){
-        let data : JwtPayload = {
+
+    createJwtPayload(user){
+
+        let data: JwtPayload = {
             email: user.email,
-            id: user.id,
+            id: user._id,
             first_name: user.first_name,
-            last_name: user.last_name,
-            user_name:user.user_name
-        }   
+            last_name: user.last_name
+        };
+
         let jwt = this.jwtService.sign(data);
-        
+
         return {
-            expiresIn:3600,
-            token:jwt
+            expiresIn: 3600,
+            token: jwt            
         }
+
     }
 
 
-}   
+}

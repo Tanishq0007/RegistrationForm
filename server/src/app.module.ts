@@ -1,33 +1,61 @@
-import { Module, MiddlewareConsumer, NestModule, RequestMethod } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { FrontendMiddleware } from './middleware/frontend.middleware';
 import { MongooseModule } from '@nestjs/mongoose';
-//Modules
-import { WorkshopModule } from './workshops/workshop.module'
-import { UserModule } from './user/users.module';
+import { CustomerModule } from './customer/customer.module';
+import { FrontendMiddleware } from './middleware/frontend.middleware';
+import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
-import { ConfigModule } from '@nestjs/config';
+import { BlogModule } from './blog/blog.module';
+import { ContactModule } from './contact/customer.module';
+import { RegisterModule } from './register/regsiter.module';
+import { RegistrationModule } from './registration/registration.module'
+import { WorkshopsModule } from './workshops/workshops.module';
+//module for nestmailermodule
+import { HandlebarsAdapter, MailerModule } from '@nest-modules/mailer';
 
 
 @Module({
-  imports: [ConfigModule.forRoot(),
-    WorkshopModule,
-  MongooseModule.forRoot(process.env.MONGODB_URL || 'mongodb://localhost/nest'),
+  imports: [
+    MongooseModule.forRoot(process.env.MONGODB_URL || "mongodb://localhost/shopdot"),
+    CustomerModule,
     UserModule,
-    AuthModule],
+    AuthModule,
+    BlogModule,
+    ContactModule,
+    RegisterModule,
+    RegistrationModule,
+    WorkshopsModule,
+    MailerModule.forRootAsync({
+      useFactory:() => ({
+        transport: 'smtps://saeakgec.event@gmail.com:innovacion@2020@smtp.gmail.com',
+        defaults: {
+          from: '"nest-modules" <modules@nestjs.com>',
+        },
+        
+        template: {
+         dir: './src/views',
+          adapter: new HandlebarsAdapter(),
+          options: {
+            strict: true,
+          }
+        },
+      })     
+    })
+  ],
   controllers: [AppController],
   providers: [AppService],
-  
 })
-
 export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(FrontendMiddleware).forRoutes(
-      {
-        path: '/**', // For all routes
-        method: RequestMethod.ALL, // For all methods
-      },
-    );
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(FrontendMiddleware)
+      .forRoutes(
+        {
+          path: '/**', // For all routes
+          method: RequestMethod.ALL, // For all methods
+        },
+      );
   }
+
 }

@@ -1,14 +1,14 @@
 {
-  "name": "sae2020",
-  "version": "1.0.0",
-  "description": "SAE AKGEC 2020 Website",
+  "name": "shopdot",
+  "version": "0.0.1",
+  "description": "Sae Akgec Official website",
   "main": "index.js",
   "scripts": {
     "install": "npm run install:client && npm run install:server",
     "install:client": "(cd ./client && npm install)",
     "install:server": "(cd ./server && npm install)",
     "build": "npm run build:client && npm run build:server",
-    "build:client": "(cd ./client && npm run build)",
+    "build:client": "(cd ./client && npm run build:prod)",
     "build:server": "(cd ./server &&npm run prebuild && npm run build)",
     "start": "npm run start:prod",
     "start:prod": "(cd ./server && npm run start:prod)",
@@ -16,13 +16,14 @@
     "start:client": "(cd ./client && npm run start)",
     "start:server": "(cd ./server && npm run start:watch)"
   },
-  "author": "Rishabh Jain",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepanshut041/shopdot-temp.git"
+  },
+  "author": "Deepanshu Tyagi",
   "license": "MIT",
-  "dependencies": {
-    "@crowdlinker/nestjs-mailer": "0.0.3",
-    "@nestjs-modules/mailer": "^1.5.0",
-    "@nestjs/mongoose": "^7.0.1",
-    "mongoose": "^5.9.14",
-    "nodemailer": "^6.4.6"
-  }
+  "bugs": {
+    "url": "https://github.com/deepanshut041/shopdot-temp/issues"
+  },
+  "homepage": "https://github.com/deepanshut041/shopdot-temp#readme"
 }
