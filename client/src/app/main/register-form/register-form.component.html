@@ -1,0 +1,114 @@
+<div class="register-form">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-5 col-sm-0 bg">
+                <img class="img-container banner" src="assets/SAE recruitment drive'21.png" alt="poster">
+            </div>
+            <div class="col-lg-7 col-sm-12 background">
+                <form [formGroup]="form" class="form-card" (submit)="submit()">
+                    <div class="register-heading">
+                        <img src="assets/logo1.png" alt="logo" class="logo1">
+                        <p class="text-center small">Recruitment</p>
+                        <!--            <h2>SAE-2021</h2>-->
+                    </div>
+                    <div class="form-container">
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Name</mat-label>
+                            <mat-icon matPrefix>person</mat-icon>
+                            <input type="text" matInput formControlName="name" [formControl]="name" autocomplete="off">
+                            <mat-error [hidden]="!name.errors?.required">Required Field</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Branch</mat-label>
+                            <mat-icon matPrefix>engineering</mat-icon>
+                            <mat-select placeholder="Branch" [formControl]="branch">
+                                <mat-option *ngFor="let branch of branches" [value]="branch">
+                                    {{branch}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error [hidden]="!branch.errors?.required">Required Field</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Student Number</mat-label>
+                            <mat-icon matPrefix>portrait</mat-icon>
+                            <input matInput type="number" formControlName="student_no" [formControl]="student_no">
+                            <mat-hint>Eg. 19XXXXX</mat-hint>
+                            <mat-error [hidden]="!student_no.errors?.required">Required Field</mat-error>
+                            <mat-error *ngIf="!student_no.errors?.required" [hidden]="!student_no.errors">Enter a
+                                valid
+                                Student
+                                number
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Roll Number</mat-label>
+                            <mat-icon matPrefix>school</mat-icon>
+                            <input type="number" matInput placeholder="Roll Number" formControlName="roll_no"
+                                [formControl]="roll_no" autocomplete="off">
+                            <mat-hint>Eg. 19XXXXXXX</mat-hint>
+                            <mat-error [hidden]="!roll_no.errors?.required">Required Field</mat-error>
+                            <mat-error *ngIf="!roll_no.errors?.required" [hidden]="!roll_no.errors">Enter a valid
+                                Roll number
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Mobile Number</mat-label>
+                            <mat-icon matPrefix>call</mat-icon>
+                            <input type="text" matInput placeholder="Mobile Number" formControlName="phone_no"
+                                [formControl]="phone_no" autocomplete="off">
+                            <mat-error [hidden]="!phone_no.errors?.required">Required Field</mat-error>
+                            <mat-error *ngIf="!phone_no.errors?.required" [hidden]="!phone_no.errors">Enter a
+                                valid Mobile
+                                number
+                            </mat-error>
+                        </mat-form-field>
+                        <!--            <mat-form-field appearance="legacy">-->
+                        <!--              <mat-label>Whatsapp Number</mat-label>-->
+                        <!--              <mat-icon matPrefix>phone_iphone</mat-icon>-->
+                        <!--              <input type="text" matInput placeholder="Whatsapp Number" formControlName="whatsappNumber"-->
+                        <!--                     [formControl]="whatsappNumber">-->
+                        <!--              <mat-error [hidden]="!whatsappNumber.errors?.required">Required Field</mat-error>-->
+                        <!--              <mat-error *ngIf="!whatsappNumber.errors?.required" [hidden]="!whatsappNumber.errors">Enter a valid-->
+                        <!--                Mobile-->
+                        <!--                number-->
+                        <!--              </mat-error>-->
+                        <!--            </mat-form-field>-->
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Email</mat-label>
+                            <mat-icon matPrefix>email</mat-icon>
+                            <input type="text" matInput placeholder="Email" formControlName="email"
+                                [formControl]="email" autocomplete="off">
+                            <mat-hint>Enter your College Email</mat-hint>
+                            <mat-error [hidden]="!email.errors?.required">Required Field</mat-error>
+                            <mat-error [hidden]="!email.errors?.email">Invalid Email</mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Skills</mat-label>
+                            <mat-icon matPrefix>military_tech</mat-icon>
+                            <input type="text" matInput placeholder="Skills" formControlName="skills"
+                                [formControl]="skills" autocomplete="off">
+                            <!--              <mat-hint>Eg. HTML, CSS, ....</mat-hint>-->
+                            <mat-error [hidden]="!skills.errors?.required">Required Field</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div style="margin: 20px; display: flex; justify-content: center">
+                        <!-- <ngx-recaptcha2 style="text-align: center" #captchaElem
+                              [siteKey]="'6LdEYLsZAAAAAL7py4jEM8-XTy07esuKT9A48rHu'"
+                              (reset)="handleReset()"
+                              (expire)="handleExpire()"
+                              (load)="handleLoad()"
+                              (success)="handleSuccess($event)"
+                              formControlName="recaptcha">
+              </ngx-recaptcha2> -->
+                    </div>
+                    <div class="submit-button">
+                        <button mat-raised-button type="submit">
+                            <span *ngIf="!isLoading">Submit</span>
+                            <mat-spinner *ngIf="isLoading" diameter="40"></mat-spinner>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

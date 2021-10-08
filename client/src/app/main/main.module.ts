@@ -31,14 +31,17 @@ import { EfficarComponent } from './efficar/efficar.component';
 import { InnovacionComponent } from './innovacion/innovacion.component';
 import { AacarComponent } from './aacar/aacar.component';
 import { UsersComponent } from './users/users.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { MatIconModule, MatInputModule, MatOptionModule, MatProgressSpinnerModule, MatSelectModule, MatSnackBarModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 
 @NgModule({
-  declarations: [HomeComponent, NavbarComponent, FooterComponent, HomeHeaderComponent, HomeTutorialComponent, HomeAboutComponent, FaqsComponent, PrivacyComponent, TermsComponent, AboutComponent, ReachComponent, ContactComponent, MainComponent, BookingComponent, HomeFeaturesComponent,  HomeTeamComponent, SupraComponent, EfficycleComponent, EfficarComponent, InnovacionComponent, AacarComponent, UsersComponent],
+  declarations: [HomeComponent, NavbarComponent, RegisterFormComponent, FooterComponent, HomeHeaderComponent, HomeTutorialComponent, HomeAboutComponent, FaqsComponent, PrivacyComponent, TermsComponent, AboutComponent, ReachComponent, ContactComponent, MainComponent, BookingComponent, HomeFeaturesComponent,  HomeTeamComponent, SupraComponent, EfficycleComponent, EfficarComponent, InnovacionComponent, AacarComponent, UsersComponent],
   imports: [
-    CommonModule, MainRoutingModule, MatCardModule, FormsModule, ReactiveFormsModule, NgxHmCarouselModule,UsersModule
+    CommonModule, HttpClientModule, MainRoutingModule, MatCardModule, ReactiveFormsModule, MatInputModule, MatIconModule, MatOptionModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule, FormsModule, ReactiveFormsModule, NgxHmCarouselModule,UsersModule
   ],
   providers: [MainService]
 })

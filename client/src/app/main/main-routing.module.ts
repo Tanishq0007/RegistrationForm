@@ -17,6 +17,7 @@ import { AacarComponent } from './aacar/aacar.component';
 import {RegistrationComponent} from '../main/users/registration/registration.component';
 import {HomeTeamComponent} from './home/home-team/home-team.component'
 import { BookingComponent } from './booking/booking.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
       { path: "home", component: HomeComponent },
       { path: "aacar", component: AacarComponent },
       {path:  "team" , component:HomeTeamComponent},
+      {path:  "register" , component:RegisterFormComponent},
       {
         path: 'blogs', component: BlogsComponent, children: [
           { path: '', component: BlogsListComponent },
